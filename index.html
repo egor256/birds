@@ -1,0 +1,34 @@
+<html>
+  <head>
+    <script src="https://code.createjs.com/1.0.0/createjs.min.js"></script>
+    <script src="./GameSpriteSheets.js"></script>
+    <script src="./GameScene.js"></script>
+    <script src="./MenuScene.js"></script>
+    <script src="./GameObject.js"></script>
+    <script src="./FoodItem.js"></script>
+    <script src="./RedBird.js"></script>
+    <script src="./PlayerBird.js"></script>
+    <script src="./Button.js"></script>
+    <script src="./GameOverScene.js"></script>
+    <script>
+        var stage;
+        function init() {
+            stage = new createjs.Stage("gameCanvas");
+
+            GameSpriteSheets.load();
+
+            MenuScene.init(stage);
+
+            createjs.Ticker.on("tick", tick);
+            createjs.Ticker.setFPS(60);
+        }
+        
+        function tick(event) {
+            stage.update(event);
+        }
+    </script>
+  </head>
+  <body onload="init();">
+    <center><canvas id="gameCanvas" width="1024" height="600"></canvas></center>
+  </body>
+</html>
