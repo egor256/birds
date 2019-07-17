@@ -9,8 +9,11 @@ class GameScene {
         document.onkeyup = GameScene.onKeyUp;
 
         var bg = new createjs.Shape();
-        bg.graphics.beginFill("DeepSkyBlue").drawRect(0, 0, GameScene.stage.canvas.width, GameScene.stage.canvas.height);
+        bg.graphics.beginFill("skyblue").drawRect(0, 0, GameScene.stage.canvas.width, GameScene.stage.canvas.height);
         GameScene.stage.addChild(bg);
+        var ground = new createjs.Shape();
+        ground.graphics.beginFill("burlywood").drawRect(0, GameScene.stage.canvas.height - 24, GameScene.stage.canvas.width, 24);
+        GameScene.stage.addChild(ground);
     
         GameScene.player = new PlayerBird(GameScene.stage);
         GameScene.speed = 100;

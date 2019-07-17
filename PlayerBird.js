@@ -48,7 +48,7 @@ class PlayerBird extends createjs.Sprite {
     _tick(event) {
         super._tick(event);
 
-        if (this.y > GameScene.stage.canvas.height - 25) {
+        if (this.y > GameScene.stage.canvas.height - 60) {
             GameOverScene.init(GameScene.stage);
         }
 
