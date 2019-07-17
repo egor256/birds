@@ -23,6 +23,8 @@ class GameScene {
         GameScene.stage.addChild(GameScene.nourishmentBoundingRect);
         
         // TODO: add more elements for the level here...
+        new Tree(GameScene.stage, 850, 320);
+        new Tree(GameScene.stage, 1400, 320);
         new FoodItem(GameScene.stage, "lemon", 800, 100);
         new FoodItem(GameScene.stage, "banana", 200, 250);
         new FoodItem(GameScene.stage, "apple", 1600, 100);

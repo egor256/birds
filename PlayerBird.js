@@ -30,8 +30,19 @@ class PlayerBird extends createjs.Sprite {
               rect1.y <= rect2.y + rect2.height && rect2.y <= rect1.y + rect1.height;
     }
 
+    static checkIntersections(rects1, rects2) {
+        for (var i = 0; i < rects1.length; i++) {
+            for (var j = 0; j < rects2.length; j++) {
+                if (PlayerBird.checkIntersection(rects1[i], rects2[j])) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
     getBoundingRectangles() {
-        return [new createjs.Rectangle(this.x, this.y, this.width, this.height)];
+        return [new createjs.Rectangle(this.x + 12, this.y + 6, 42, 26)];
     }
 
     _tick(event) {
@@ -49,18 +60,19 @@ class PlayerBird extends createjs.Sprite {
             this.y += event.delta / 1000 * 50; // gravity
         }
 
+        var playerRects = this.getBoundingRectangles();
         for (var i = 0; i < GameScene.stage.children.length; i++) {
             var child = GameScene.stage.children[i];
-            if (child instanceof RedBird) {
-                var rect = child.getBoundingRectangles()[0];
-                var playerRect = this.getBoundingRectangles()[0];
-                if (PlayerBird.checkIntersection(playerRect, rect)) {
+            if (!("getBoundingRectangles" in child)) {
+                continue;
+            }
+            var childRects = child.getBoundingRectangles();
+            if (child instanceof RedBird || child instanceof Tree) {
+                if (PlayerBird.checkIntersections(playerRects, childRects)) {
                     GameOverScene.init(GameScene.stage);
                 }
             } else if (child instanceof FoodItem) {
-                var rect = child.getBoundingRectangles()[0];
-                var playerRect = this.getBoundingRectangles()[0];
-                if (PlayerBird.checkIntersection(playerRect, rect)) {
+                if (PlayerBird.checkIntersections(playerRects, childRects)) {
                     this.nourishment = Math.min(100, this.nourishment + child.nourishmentPoints);
                     GameScene.setNourishmentValue(this.nourishment);
                     GameScene.stage.removeChild(child);

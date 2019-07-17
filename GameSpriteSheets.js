@@ -39,5 +39,10 @@ class GameSpriteSheets
             images: ["resources/apple.png"],
             frames: {width:30, height:30, count:1},
         });
+
+        GameSpriteSheets.treeSpriteSheet = new createjs.SpriteSheet({
+            images: ["resources/tree.png"],
+            frames: {width:256, height:278, count:1},
+        });
     }
 }
