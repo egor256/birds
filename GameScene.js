@@ -26,14 +26,23 @@ class GameScene {
         GameScene.stage.addChild(GameScene.nourishmentBoundingRect);
         
         // TODO: add more elements for the level here...
-        new Tree(GameScene.stage, 850, 320);
+        new Tree(GameScene.stage,  850, 320);
         new Tree(GameScene.stage, 1400, 320);
+        new Tree(GameScene.stage, 1600, 320);
+        new Tree(GameScene.stage, 2000, 320);
+        new Tree(GameScene.stage, 2500, 320);
         new FoodItem(GameScene.stage, "lemon", 800, 100);
         new FoodItem(GameScene.stage, "banana", 200, 250);
-        new FoodItem(GameScene.stage, "apple", 1600, 100);
+        new FoodItem(GameScene.stage, "apple", 1600, 100);        
         new RedBird(GameScene.stage, 1000, 330);
         new RedBird(GameScene.stage, 1400, 320);
         new RedBird(GameScene.stage, 1700, 380);
+        new FoodItem(GameScene.stage, "lemon", 1800, 100);
+        new FoodItem(GameScene.stage, "banana", 2000, 250);
+        new FoodItem(GameScene.stage, "apple", 2500, 300);
+        new RedBird(GameScene.stage, 1800, 130);
+        new RedBird(GameScene.stage, 2300, 150);
+        new RedBird(GameScene.stage, 2600, 140);
     }
 
     // val - [0..100], bar size - 200
