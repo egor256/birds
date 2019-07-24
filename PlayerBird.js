@@ -79,6 +79,10 @@ class PlayerBird extends createjs.Sprite {
                     GameScene.setNourishmentValue(this.nourishment);
                     GameScene.stage.removeChild(child);
                 }
+            } else if (child instanceof FinishLine) {
+                if (PlayerBird.checkIntersections(playerRects, childRects)) {
+                    CongratulationsScene.init(GameScene.stage);
+                }
             }
         }
     }
