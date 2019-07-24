@@ -53,7 +53,9 @@ class PlayerBird extends createjs.Sprite {
         }
 
         if (this.moveUp && this.nourishment > 0) {
-            this.y -= event.delta / 1000 * 150; // feel free to play around with these numbers
+            if (this.y > 8) {
+                this.y -= event.delta / 1000 * 150; // feel free to play around with these numbers
+            }
             this.nourishment -= event.delta / 1000 * 15;
             GameScene.setNourishmentValue(this.nourishment);
         } else {

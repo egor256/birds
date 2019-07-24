@@ -61,14 +61,14 @@ class GameScene {
         new FinishLine(GameScene.stage, GameScene.finishX, 0);
 
         GameScene.player = new PlayerBird(GameScene.stage);
-        
+
         GameScene.nourishmentRect = new createjs.Shape();
         GameScene.nourishmentRect.graphics.beginFill("Lime").drawRect(3, 3, 200, 10);
         GameScene.stage.addChild(GameScene.nourishmentRect);
         GameScene.nourishmentBoundingRect = new createjs.Shape();
         GameScene.nourishmentBoundingRect.graphics.setStrokeStyle(1).beginStroke("black").drawRect(3, 3, 200, 10);
         GameScene.stage.addChild(GameScene.nourishmentBoundingRect);
-        
+
         GameScene.progressBar = new ProgressBar(stage, GameScene.stage.canvas.width - 203, 3);
     }
 
