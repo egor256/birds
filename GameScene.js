@@ -1,7 +1,7 @@
 class GameScene {
 
     static init(stage) {
-        var i,j,k;
+        var i,j,k,x=0,y=0;
         GameScene.stage = stage;
         GameScene.stage.removeAllChildren();
         GameScene.stage.update();
@@ -25,6 +25,10 @@ class GameScene {
         GameScene.nourishmentBoundingRect = new createjs.Shape();
         GameScene.nourishmentBoundingRect.graphics.setStrokeStyle(1).beginStroke("black").drawRect(3, 3, 200, 10);
         GameScene.stage.addChild(GameScene.nourishmentBoundingRect);
+
+        function getRndInteger(min, max) {
+            return Math.floor(Math.random() * (max - min + 1) ) + min;
+          }
         
         // TODO: add more elements for the level here...
         //new Tree(GameScene.stage,  850, 320);
@@ -45,27 +49,41 @@ class GameScene {
         //new RedBird(GameScene.stage, 2300, 150);
         //new RedBird(GameScene.stage, 2600, 140);
 
-        for (i = 100; i < 10000; i=i+500) 
-        {   
-            new Tree(GameScene.stage, i, 320);          
+
+       for (i = 100; i < 50000; i=i+x) 
+        {  
+            x = getRndInteger(300,1000);   
+            new Tree(GameScene.stage, i, 320);  
+  
         }
 
-        for (j = 100; j < 10000; j=j+1000) 
+        for (j = 500; j < 50000; j=j+x) 
         { 
-            new FoodItem(GameScene.stage, "lemon",  j,     150);
-            new FoodItem(GameScene.stage, "banana", j+400, 280);
-            new FoodItem(GameScene.stage, "apple",  j+800, 220);  
+            x = getRndInteger(100,500); 
+            y = getRndInteger(20,310);  
+            if (getRndInteger(1,3) == 1){
+                new FoodItem(GameScene.stage, "apple",  j+x, y);  
+            }else if (getRndInteger(1,3) == 2){
+                new FoodItem(GameScene.stage, "lemon",  j+x, y);
+            }else if (getRndInteger(1,3) == 3){
+                new FoodItem(GameScene.stage, "banana", j+x, y);
+            }          
         }
 
-        for (k = 1000; k < 30000; k=k+2000) 
+        for (k = 1000; k < 50000; k=k+x) 
         { 
-            new RedBird(GameScene.stage, k,      150);
-            new RedBird(GameScene.stage, k+500,  250);
-            new RedBird(GameScene.stage, k+1200, 380);
-            new RedBird(GameScene.stage, k+1500, 160);
+            x = getRndInteger(100,1000); 
+            y = getRndInteger(20,310);  
+            new RedBird(GameScene.stage, k+x, y);
+            x = getRndInteger(1000,2000); 
+            y = getRndInteger(20,310);  
+            new RedBird(GameScene.stage, k+x, y);
+            x = getRndInteger(2000,3000); 
+            y = getRndInteger(20,310);  
+            new RedBird(GameScene.stage, k+x, y);
         }
     }
-
+    
     // val - [0..100], bar size - 200
     static setNourishmentValue(val) {
         GameScene.nourishmentRect.graphics.clear().beginFill("Lime").drawRect(3, 3, val * 2, 10);
@@ -82,4 +100,5 @@ class GameScene {
             GameScene.player.onMoveKeyUp();
         }
     }
+    
 }
