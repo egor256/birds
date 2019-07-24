@@ -69,7 +69,7 @@ class GameScene {
         GameScene.nourishmentBoundingRect.graphics.setStrokeStyle(1).beginStroke("black").drawRect(3, 3, 200, 10);
         GameScene.stage.addChild(GameScene.nourishmentBoundingRect);
         
-        GameScene.progressBar = new ProgressBar(stage, GameScene.stage.canvas.width - 220, 2);
+        GameScene.progressBar = new ProgressBar(stage, GameScene.stage.canvas.width - 203, 3);
     }
 
     // val - [0..100], bar size - 200
