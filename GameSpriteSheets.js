@@ -44,5 +44,15 @@ class GameSpriteSheets
             images: ["resources/tree.png"],
             frames: {width:256, height:278, count:1},
         });
+
+        GameSpriteSheets.finishSpriteSheet = new createjs.SpriteSheet({
+            images: ["resources/finish.png"],
+            frames: {width:14, height:600, count:1},
+        });
+
+        GameSpriteSheets.progressBarSpriteSheet = new createjs.SpriteSheet({
+            images: ["resources/progressBar.png"],
+            frames: {width:200, height:12, count:1},
+        });
     }
 }
