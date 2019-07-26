@@ -19,11 +19,14 @@ class MenuScene {
         });
 
         var helpButton = new Button(stage, "./resources/button.png", "Help", xpos, 300, function() {
-            alert("Show help...");
+            alert("Click the up arrow to keep the bird flying, \ndodge enemy birds and trees.\n\n Eat fruits on your way to gain more life.");
         });
 
         var authorsButton = new Button(stage, "./resources/button.png", "Authors", xpos, 400, function() {
-            alert("Show authors...");
+            alert("                 ONUR KANCA   \n"+
+                  "             EGOR BREDIKHIN     \n"+
+                  "          FERNANDO MARTINS    \n"+
+                  "ANDREA DE FATIMA CAVALHEIRO");
         });
     }
 }
