@@ -8,6 +8,8 @@ class GameScene {
 
         document.onkeydown = GameScene.onKeyDown;
         document.onkeyup = GameScene.onKeyUp;
+        document.onmousedown = GameScene.onMouseDown;
+        document.onmouseup = GameScene.onMouseUp;
 
         var bg = new createjs.Shape();
         bg.graphics.beginFill("skyblue").drawRect(0, 0, GameScene.stage.canvas.width, GameScene.stage.canvas.height);
@@ -77,14 +79,22 @@ class GameScene {
         GameScene.nourishmentRect.graphics.clear().beginFill("Lime").drawRect(3, 3, val * 2, 10);
     }
 
+    static onMouseDown(event) {
+        GameScene.player.onMoveKeyDown();
+    }
+
+    static onMouseUp(event) {
+        GameScene.player.onMoveKeyUp();
+    }
+
     static onKeyDown(event) {
-        if (event.key == "ArrowUp") {
+        if (event.key == "ArrowUp" || event.key == " " || event.key == "Spacebar") {
             GameScene.player.onMoveKeyDown();
         }
     }
 
     static onKeyUp(event) {
-        if (event.key == "ArrowUp") {
+        if (event.key == "ArrowUp" || event.key == " " || event.key == "Spacebar") {
             GameScene.player.onMoveKeyUp();
         }
     }
