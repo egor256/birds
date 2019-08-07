@@ -12,7 +12,7 @@ class GameOverScene {
 
         GameOverScene.stage.enableMouseOver(20);
 
-        var text = new createjs.Text("Game Over!", "30px Arial", "#000000");
+        var text = new createjs.Text("Game Over!", "30px Comic Sans MS", "#000000");
         text.x = (GameOverScene.stage.canvas.width - text.getMeasuredWidth()) / 2;
         text.y = 150;
         GameOverScene.stage.addChild(text);

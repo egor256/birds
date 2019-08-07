@@ -20,7 +20,7 @@ class AuthorsScene {
         ]
         
         for (var i = 0; i < lines.length; i++) {
-            var text = new createjs.Text(lines[i], "22px Arial", "#000000");
+            var text = new createjs.Text(lines[i], "22px Comic Sans MS", "#000000");
             text.x = (AuthorsScene.stage.canvas.width - text.getMeasuredWidth()) / 2;
             text.y = 150 + i * 50;
             AuthorsScene.stage.addChild(text);

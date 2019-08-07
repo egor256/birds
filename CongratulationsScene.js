@@ -12,7 +12,7 @@ class CongratulationsScene {
 
         CongratulationsScene.stage.enableMouseOver(20);
 
-        var text = new createjs.Text("Congratulations!", "30px Arial", "#000000");
+        var text = new createjs.Text("Congratulations!", "30px Comic Sans MS", "#000000");
         text.x = (CongratulationsScene.stage.canvas.width - text.getMeasuredWidth()) / 2;
         text.y = 150;
         CongratulationsScene.stage.addChild(text);
