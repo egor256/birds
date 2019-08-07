@@ -13,6 +13,18 @@ class GameSpriteSheets
             }
         });
 
+        GameSpriteSheets.explosionSpriteSheet = new createjs.SpriteSheet({
+            images: ["resources/explosion1.png",
+                    "resources/explosion2.png",
+                    "resources/explosion3.png",
+                    "resources/explosion4.png",
+                    "resources/explosion5.png"],
+            frames: {width:126, height:126, count:5},
+            animations: {
+                explode: [0, 4, "explode", 0.3],
+            }
+        });
+
         GameSpriteSheets.redBirdSpriteSheet = new createjs.SpriteSheet({
             images: ["resources/redBird/frame-1.png",
                     "resources/redBird/frame-2.png",

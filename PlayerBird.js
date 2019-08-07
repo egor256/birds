@@ -71,7 +71,15 @@ class PlayerBird extends createjs.Sprite {
             var childRects = child.getBoundingRectangles();
             if (child instanceof RedBird || child instanceof Tree) {
                 if (PlayerBird.checkIntersections(playerRects, childRects)) {
-                    GameOverScene.init(GameScene.stage);
+                    if (child instanceof RedBird) {
+                        GameScene.stage.removeChild(child);
+                    }
+                    GameScene.speed = 0;
+                    var onAnimationFinished = function() {
+                        GameOverScene.init(GameScene.stage);
+                    };
+                    new Explosion(GameScene.stage, this.x - 40, this.y - 40, onAnimationFinished);
+                    GameScene.stage.removeChild(this);
                 }
             } else if (child instanceof FoodItem) {
                 if (PlayerBird.checkIntersections(playerRects, childRects)) {
