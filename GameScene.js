@@ -10,6 +10,8 @@ class GameScene {
         document.onkeyup = GameScene.onKeyUp;
         document.onmousedown = GameScene.onMouseDown;
         document.onmouseup = GameScene.onMouseUp;
+        document.ontouchstart = GameScene.onMouseDown;
+        document.ontouchend = GameScene.onMouseUp;
 
         var bg = new createjs.Shape();
         bg.graphics.beginFill("skyblue").drawRect(0, 0, GameScene.stage.canvas.width, GameScene.stage.canvas.height);
