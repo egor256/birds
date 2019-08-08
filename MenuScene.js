@@ -12,7 +12,7 @@ class MenuScene {
 
         MenuScene.stage.enableMouseOver(20);
 
-        var xpos = (MenuScene.stage.canvas.width - 150) / 2;
+        var xpos = (MenuScene.stage.canvas.width - 180) / 2;
 
         var playButton = new Button(stage, "./resources/button.png", "Play", xpos, 200, function() {
             GameScene.init(MenuScene.stage);

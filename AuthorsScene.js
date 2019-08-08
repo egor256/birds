@@ -26,7 +26,7 @@ class AuthorsScene {
             AuthorsScene.stage.addChild(text);
         }
 
-        var xpos = (AuthorsScene.stage.canvas.width - 150) / 2;
+        var xpos = (AuthorsScene.stage.canvas.width - 180) / 2;
 
         var playButton = new Button(stage, "./resources/button.png", "Back to Menu", xpos, 350, function() {
             MenuScene.init(AuthorsScene.stage);

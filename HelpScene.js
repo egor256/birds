@@ -26,7 +26,7 @@ class HelpScene {
             HelpScene.stage.addChild(text);
         }
 
-        var xpos = (HelpScene.stage.canvas.width - 150) / 2;
+        var xpos = (HelpScene.stage.canvas.width - 180) / 2;
 
         var playButton = new Button(stage, "./resources/button.png", "Back to Menu", xpos, 350, function() {
             MenuScene.init(HelpScene.stage);

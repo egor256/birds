@@ -17,7 +17,7 @@ class GameOverScene {
         text.y = 150;
         GameOverScene.stage.addChild(text);
 
-        var xpos = (GameOverScene.stage.canvas.width - 150) / 2;
+        var xpos = (GameOverScene.stage.canvas.width - 180) / 2;
 
         var playButton = new Button(stage, "./resources/button.png", "Back to Menu", xpos, 300, function() {
             MenuScene.init(GameOverScene.stage);

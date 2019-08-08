@@ -12,7 +12,7 @@ class Button extends createjs.Bitmap {
         stage.addChild(this);
 
         var t = new createjs.Text(text, "22px Comic Sans MS", "#000000");
-        t.x = this.x + (150 - t.getMeasuredWidth()) / 2;
+        t.x = this.x + (180 - t.getMeasuredWidth()) / 2;
         t.y = this.y + (50 - t.getMeasuredHeight()) / 2;
         stage.addChild(t);
     }
