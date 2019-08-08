@@ -45,11 +45,20 @@ class PlayerBird extends createjs.Sprite {
         return [new createjs.Rectangle(this.x + 12, this.y + 6, 42, 26)];
     }
 
+    explode() {
+        GameScene.speed = 0;
+        var onAnimationFinished = function() {
+            GameOverScene.init(GameScene.stage);
+        };
+        new Explosion(GameScene.stage, this.x - 40, this.y - 40, onAnimationFinished);
+        GameScene.stage.removeChild(this);
+    }
+
     _tick(event) {
         super._tick(event);
 
         if (this.y > GameScene.stage.canvas.height - 60) {
-            GameOverScene.init(GameScene.stage);
+            this.explode();
         }
 
         if (this.moveUp && this.nourishment > 0) {
@@ -74,12 +83,7 @@ class PlayerBird extends createjs.Sprite {
                     if (child instanceof RedBird) {
                         GameScene.stage.removeChild(child);
                     }
-                    GameScene.speed = 0;
-                    var onAnimationFinished = function() {
-                        GameOverScene.init(GameScene.stage);
-                    };
-                    new Explosion(GameScene.stage, this.x - 40, this.y - 40, onAnimationFinished);
-                    GameScene.stage.removeChild(this);
+                    this.explode();
                 }
             } else if (child instanceof FoodItem) {
                 if (PlayerBird.checkIntersections(playerRects, childRects)) {
